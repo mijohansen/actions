@@ -7,7 +7,8 @@ if [[ "${GITHUB_REF}" = "refs/heads/master" ]]; then
     git config user.email team-foreldrepenger[bot]@users.noreply.github.com
     git checkout master
     git tag ${RELEASE_VERSION}
-    git push --tags ${PUSH_URL} HEAD:master
+    git remote set-url origin ${PUSH_URL}
+    git push origin RELEASE_VERSION
     echo "Pushing the new version to $GITHUB_REPOSITORY as $GITHUB_ACTOR"
 else
     echo "Will not bump version on branch ${GITHUB_REF}"
