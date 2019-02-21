@@ -8,7 +8,7 @@ if [[ "${GITHUB_REF}" = "refs/heads/master" ]]; then
     git checkout master
     git tag ${RELEASE_VERSION}
     git remote set-url origin ${PUSH_URL}
-    git push origin RELEASE_VERSION
+    git push origin ${RELEASE_VERSION}
     echo "Pushing the new version to $GITHUB_REPOSITORY as $GITHUB_ACTOR"
 else
     echo "Will not bump version on branch ${GITHUB_REF}"
